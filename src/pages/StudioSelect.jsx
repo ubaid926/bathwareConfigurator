@@ -77,37 +77,37 @@ function StudioSelect() {
         </div>
       )}
       {/* MAIN CONTENT */}
-    <main className="relative mx-auto flex w-full max-w-[1700px] flex-1 flex-col px-[22px] pb-6 pt-5 sm:px-10 sm:pb-12 sm:pt-10 lg:px-[6.5%]">
+      <main className="relative mx-auto flex w-full max-w-[1700px] flex-1 flex-col px-[22px] pb-6 pt-5 sm:px-10 sm:pb-12 sm:pt-10 lg:px-[6.5%]">
 
         {/* Back Button */}
-     <button
-  onClick={() => navigate('/')}
-  aria-label="Go back"
-  className="absolute left-[22px] top-4 z-10 flex h-[22px] w-[22px] items-center justify-center text-[#20201E] md:left-10 md:top-8 md:h-[48px] md:w-[48px] md:rounded-full md:border md:border-[#E5E3DF] md:bg-white lg:left-[3.5%]"
->
-  <ArrowLeft className="h-[15px] w-[15px] md:h-[22px] md:w-[22px]" strokeWidth={1.5} />
-</button>
+        <button
+          onClick={() => navigate('/')}
+          aria-label="Go back"
+          className="absolute left-[22px] top-4 z-10 flex h-[22px] w-[22px] items-center justify-center text-[#20201E] md:left-10 md:top-8 md:h-[48px] md:w-[48px] md:rounded-full md:border md:border-[#E5E3DF] md:bg-white lg:left-[3.5%]"
+        >
+          <ArrowLeft className="h-[15px] w-[15px] md:h-[22px] md:w-[22px]" strokeWidth={1.5} />
+        </button>
 
         {/* Heading Section */}
-      <div className="mb-5 mt-1 text-center sm:mb-9">
-  <p className="mb-2 text-[8px] font-normal uppercase tracking-[0.12em] text-[#898989] sm:mb-3 sm:text-[13px] sm:text-[#886746]">
-    Choose Your Studio
-  </p>
+        <div className="mb-5 mt-1 text-center sm:mb-9">
+          <p className="mb-2 text-[8px] font-normal uppercase tracking-[0.12em] text-[#898989] sm:mb-3 sm:text-[13px] sm:text-[#886746]">
+            Choose Your Studio
+          </p>
 
-  <h1 className="mx-auto max-w-[245px] text-[22px] font-normal leading-[1.2] tracking-[-0.03em] text-[#20201E] sm:max-w-none sm:text-[40px] lg:text-[42px]">
-    Where would you like to begin?
-  </h1>
-</div>
+          <h1 className="mx-auto max-w-[245px] text-[22px] font-normal leading-[1.2] tracking-[-0.03em] text-[#20201E] sm:max-w-none sm:text-[40px] lg:text-[42px]">
+            Where would you like to begin?
+          </h1>
+        </div>
 
         {/* STUDIO CARDS */}
-       <div className="grid w-full grid-cols-1 gap-[10px] md:grid-cols-2 md:gap-7 lg:gap-9">
+        <div className="grid w-full grid-cols-1 gap-[10px] md:grid-cols-2 md:gap-7 lg:gap-9">
 
           <StudioCard
             number="01"
             image={showerImg}
             title="Shower Studio"
             subtitle="Shape your shower."
-            onClick={() => navigate('/shower-studio')}
+            // onClick={() => navigate('/shower-studio')}
           />
 
           <StudioCard
@@ -160,36 +160,39 @@ function StudioCard({
     >
 
       {/* Card Image */}
-    <div className="h-[185px] w-full overflow-hidden bg-[#EAE6E0] sm:h-auto sm:aspect-[1.36/1]">
-  <img
-    src={image}
-    alt={title}
-    loading="eager"
-    decoding="async"
-    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
-  />
-</div>
+      <div className="h-[185px] w-full overflow-hidden bg-[#EAE6E0] sm:h-auto sm:aspect-[1.36/1]">
+        <img
+          src={image}
+          alt={title}
+          loading="eager"
+          decoding="async"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
+        />
+      </div>
 
       {/* Card Footer */}
- <div className="flex min-h-[67px] w-full items-center justify-between gap-2 px-3 py-2 sm:min-h-[130px] sm:gap-4 sm:px-8 sm:py-5">
-  <div className="min-w-0">
-    <p className="mb-0.5 text-[9px] font-normal text-[#BD8D50] sm:mb-1 sm:text-[16px]">
-      {number}
-    </p>
+      <div className="flex min-h-[67px] w-full items-center justify-between gap-2 px-3 py-2 sm:min-h-[130px] sm:gap-4 sm:px-8 sm:py-5">
+        <div className="min-w-0">
+          <p className="mb-0.5 text-[9px] font-normal text-[#BD8D50] sm:mb-1 sm:text-[16px]">
+            {number}
 
-    <h2 className="text-[13px] font-normal leading-[1.2] text-[#20201E] sm:text-[26px]">
-      {title}
-    </h2>
+          </p>
 
-    <p className="mt-0.5 text-[9px] font-normal leading-[1.4] text-[#777] sm:text-[16px]">
-      {subtitle}
-    </p>
-  </div>
+          <h2 className="text-[13px] font-normal leading-[1.2] text-[#20201E] sm:text-[26px]">
 
-  <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-[#BE9259] text-white transition-colors group-hover:bg-[#A97A42] sm:h-[56px] sm:w-[56px]">
-    <ArrowRight className="h-[14px] w-[14px] sm:h-[25px] sm:w-[25px]" strokeWidth={1.5} />
-  </span>
-</div>
+
+            {title}
+          </h2>
+
+          <p className="mt-0.5 text-[9px] font-normal leading-[1.4] text-[#777] sm:text-[16px]">
+            {subtitle}
+          </p>
+        </div>
+
+        <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-[#BE9259] text-white transition-colors group-hover:bg-[#A97A42] sm:h-[56px] sm:w-[56px]">
+          <ArrowRight className="h-[14px] w-[14px] sm:h-[25px] sm:w-[25px]" strokeWidth={1.5} />
+        </span>
+      </div>
     </button>
   )
 }

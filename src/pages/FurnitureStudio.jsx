@@ -22,6 +22,14 @@ import {
   X
 } from 'lucide-react'
 
+// Product button images (Option 1 = Black/Dark theme, Option 2 = White/Light theme)
+import vanityBlack from '../assets/vanity_black.webp'
+import vanityWhite from '../assets/vanity_option2.webp'
+import sinkBlack from '../assets/sink_black.webp'
+import sinkWhite from '../assets/sink_white.webp'
+import tapOption1 from '../assets/tap_option1.webp'
+import tapOption2 from '../assets/tap_option2.webp'
+
 // Categories
 const CATEGORIES = [
   { id: 'vanities', label: 'Vanities', Icon: Bath },
@@ -42,20 +50,20 @@ const _ALL_CATEGORIES = [
 
 const PRODUCTS = {
   vanities: [
-    { id: 'vanity1', name: 'Option 1' },
-    { id: 'vanity2', name: 'Option 2' },
+    { id: 'vanity1', name: 'Option 1', image: vanityBlack },
+    { id: 'vanity2', name: 'Option 2', image: vanityWhite },
     /* Preserved for future use:
     { id: 'arc120', name: 'Option 3 (Arc 120)' },
     { id: 'arcDouble', name: 'Option 4 (Arc Double)' },
     */
   ],
   sinks: [
-    { id: 'sink1', name: 'Option 1' },
-    { id: 'sink2', name: 'Option 2' },
+    { id: 'sink1', name: 'Option 1', image: sinkBlack },
+    { id: 'sink2', name: 'Option 2', image: sinkWhite },
   ],
   taps: [
-    { id: 'tap1', name: 'Option 1' },
-    { id: 'tap2', name: 'Option 2' },
+    { id: 'tap1', name: 'Option 1', image: tapOption1 },
+    { id: 'tap2', name: 'Option 2', image: tapOption2 },
   ],
   /* Preserved for future use:
   mirrors: [
@@ -101,9 +109,21 @@ const METALS = [
   { id: 'nickel', label: 'Brushed nickel', color: '#AAA69B' },
 ]
 
-// Temporary CSS product preview.
-// Replace with actual transparent product PNG/WebP later.
-function ProductPreview({ category = 'vanities', name = '', finish = '#333333' }) {
+// Product preview: displays product image if provided, otherwise CSS fallback
+function ProductPreview({ category = 'vanities', name = '', finish = '#333333', image = null }) {
+  if (image) {
+    return (
+      <div className="flex h-full w-full items-center justify-center p-1 lg:p-2">
+        <img
+          src={image}
+          alt={name}
+          className="max-h-full max-w-full object-contain drop-shadow-sm transition-transform duration-200"
+          loading="lazy"
+        />
+      </div>
+    )
+  }
+
   const isVanity = category === 'vanities' || name.startsWith('Arc')
   const isDouble = name.includes('Double')
 
@@ -483,6 +503,7 @@ function FurnitureStudio() {
                         category={activeCategory}
                         name={product.name}
                         finish={currentFinish?.color}
+                        image={product.image}
                       />
                     </div>
 
@@ -607,6 +628,7 @@ function FurnitureStudio() {
                 category={activeCategory}
                 name={currentProduct?.name || ''}
                 finish={currentFinish?.color}
+                image={currentProduct?.image}
               />
             </div>
 

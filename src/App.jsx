@@ -197,7 +197,7 @@ function LandingPage() {
 function App() {
   return (
     <PlayCanvasProvider>
-      <BrowserRouter basename="/bathwareConfig">
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/studio-select" element={<StudioSelect />} />
